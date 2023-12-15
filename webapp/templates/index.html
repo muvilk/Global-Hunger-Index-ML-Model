@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css')}}" /> <!-- This is the CSS file for styling -->
+    <title>Country GHI Prediction</title>
+  </head>
+  <body>
+    <header>Country Global Hunger Index Prediction
+    <a href="https://www.globalhungerindex.org/" target="_blank"> <!-- This is the link to send the user to the GLobal Hunger Index website when the button is clicked-->
+      <button class="special-button"> Global Hunger Index</button>
+    </a>
+    </header>
+
+    <div class="forms">
+
+      <form action="/" method="POST">
+        <h3>
+          Current Global Hunger Index (GHI):
+        </h3>
+        <label for="countries">Select a Country:</label>
+        <select id="countries" name="selected_country">
+            <option value="" disabled selected>Select a country</option> <!-- Placeholder -->
+            {% for country in countries %}
+                <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+
+        <p>Selected Country: {{ selected_country }}</p> 
+        <p>Global Hunger Index: {{ ghi_value }}</p> <!-- These are specific indexes that we want to get from the CSV file -->
+        <p>GDP per Capita: {{ GDP }}</p>
+        <p>Multi-dimensional Poverty Index (MPI): {{ MPI }}</p>
+        <p>Global Happiness Index (GHI): {{ GHI }}</p>
+        <p>Global Peace Index (GPI): {{ GPI }}</p>
+        <p>World Risk Index (WRI): {{ WRI }}</p>
+        
+        <br>
+        <img src="data:image/png;base64,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" alt="Zero Hunger Image" style="max-width: 100%; height: auto; align-items: center;">
+        <br><br><br><br><br>
+        <p class="instruc">*If you would like to take a look at the data of a country in the list above, click submit, pick a country from the dropbox and click submit again. Else, key in the feature values to get a prediction</p>
+      </form>
+
+      <!-- Prediction Section -->
+      <form action="/predict" method="POST">
+        <h3>
+          Predict Global Hunger Index (GHI):
+        </h3>
+        <label for="feature1">GDP per Capita:</label>
+        <input type="text" name="feature1" placeholder="Enter GDP value" /> <br><br>
+
+        <label for="feature2">Multi-dimensional Poverty Index (MPI):</label>
+        <input type="text" name="feature2" placeholder="Enter MPI value" /> <br><br>
+
+        <label for="feature3">Global Happiness Index (GHI):</label>
+        <input type="text" name="feature3" placeholder="Enter GHI value" /> <br><br>
+
+        <label for="feature4">Global Peace Index (GPI):</label>
+        <input type="text" name="feature4" placeholder="Enter GPI value" /> <br><br>
+
+        <label for="feature5">World Risk Index (WRI):</label>
+        <input type="text" name="feature5" placeholder="Enter WRI value" /> <br><br>
+
+        <input type="submit" value="Predict" style="padding: 8px;"/>
+      </form>
+
+    </div>
+    <!-- Display Prediction -->
+      {% if prediction_result == 0 %}
+      <p id="predictionResult"><b>Please enter valid values!</b></p>
+      {% elif prediction_result < 10 or prediction_result < 0 %}
+      <p id="predictionResult"><b>Predicted Global Hunger Index: {{ prediction_result }}</b>  <span style="background-color: rgb(6, 255, 1)(21, 255, 0);"><u> [Low Severity]</u></span></p>
+      {% elif prediction_result >= 10 and prediction_result < 20 %}
+      <p id="predictionResult"><b>Predicted Global Hunger Index: {{ prediction_result }}</b>  <span style="background-color: rgb(203, 255, 199);"><u>[Moderate Severity]</u></span></p>
+      {% elif prediction_result >= 20 and prediction_result < 34 %}
+      <p id="predictionResult"><b>Predicted Global Hunger Index: {{ prediction_result }}</b>  <span style="background-color: rgb(255, 252, 63)"><u>[Serious Severity]</u></span></p>
+      {% elif prediction_result >= 35 and prediction_result < 50 %}
+      <p id="predictionResult"><b>Predicted Global Hunger Index: {{ prediction_result }}</b>  <span style="background-color: rgb(255, 175, 1);"><u>[Alarming Severity]</u></span></p>
+      {% elif prediction_result > 50 %}
+      <p id="predictionResult"><b>Predicted Global Hunger Index: {{ prediction_result }}</b>  <span style="background-color: rgb(255, 0, 0);"><u>[Extremely Alarming Severity]</u></span></p>
+      {% endif %}
+
+    <footer>SC04|Team 04 Khoo Yong Xuan, Long Yang Ting, Muvil Kenal Kothari, Mak Weng Hui, Eugenie Alana Florencia </footer>
+  </body>
+</html>

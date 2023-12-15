@@ -1,0 +1,138 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 10px;
+    border: 2px solid #2980b9;
+    color: white;
+}
+
+.special-button {
+    background-color: #ffffff; /* Different color for the special button */
+    color: #3498db;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.special-button:hover {
+    background-color: #3b56cf; /* Different hover color for the special button */
+    color: white
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+
+  .info-box {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 5px;
+  }
+
+.forms {
+    display: flex;
+    justify-content: space-between;
+}
+
+  form {
+    height: 590px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    flex: 1; /* This will make each form take equal width */
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+
+  #predictionResult {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px; /* Add padding for the box */
+    border: 2px solid #3498db; /* Add a border around the box */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    background-color: #f4f4f4; /* Add background color for the box */
+}
+
+  #predictionResult span {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+#countryDropdown {
+    height: 150px; /* Adjust the height as needed */
+    overflow-y: auto;
+    width: 150px;
+  }
+
+.instruc {
+    color: #737272;
+    font-size: smaller;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
