@@ -1,4 +1,4 @@
-Country GHI Prediction Model
+Country GHI Prediction Model:
 Overview
 This project aims to predict the Global Hunger Index (GHI) of a country based on various features such as GDP per Capita, Global Happiness Index, Multidimensional Poverty Index, Global Peace Index, and World Risk Index. The model is implemented using Python with Flask as the web framework.
 
